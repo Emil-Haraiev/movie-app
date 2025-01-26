@@ -2,6 +2,9 @@ import React from 'react';
 import {useState, useEffect} from "react";
 import hero from "./assets/hero.png"
 import Search from "./components/Search.jsx";
+import MovieCard from "./components/MovieCard.jsx";
+import Spinner from "./components/Spinner.jsx";
+
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -76,28 +79,18 @@ fetchMovies()
                     <section className="all-movies">
                         <h2 className="mt-[40px]">All Movies</h2>
 
+
+
                         {isLoading ? (
-                            <Spinner/>
-                        ): errorMessage ? (
-                            <p>{errorMessage}</p>
-                        ) :(
+                            <Spinner />
+                        ) : errorMessage ? (
+                            <p className="text-red-500">{errorMessage}</p>
+                        ) : (
                             <ul>
                                 {movieList.map((movie) => (
-                                    <p className='text-white'>{movie.title}</p>
+                                    <MovieCard key={movie.id} movie={movie} />
                                 ))}
                             </ul>
-                        )}
-
-                        {/*{isLoading ? (*/}
-                        {/*    <Spinner />*/}
-                        {/*) : errorMessage ? (*/}
-                        {/*    <p className="text-red-500">{errorMessage}</p>*/}
-                        {/*) : (*/}
-                        {/*    <ul>*/}
-                        {/*        {movieList.map((movie) => (*/}
-                        {/*            <MovieCard key={movie.id} movie={movie} />*/}
-                        {/*        ))}*/}
-                        {/*    </ul>*/}
                         )}
                     </section>
               </div>
