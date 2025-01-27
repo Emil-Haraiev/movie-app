@@ -92,7 +92,7 @@ useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
               <div className="wrapper">
                   <header>
                       <img src={hero} alt="hero banner"/>
-                      <h1>Find <span className="text-gradient">Movies</span>
+                      <h1>Find <span className="text-gradient">Movies</span>&nbsp;
                           You&#39;ll Enjoy Without the Hassle </h1>
                       <Search setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
                   </header>
